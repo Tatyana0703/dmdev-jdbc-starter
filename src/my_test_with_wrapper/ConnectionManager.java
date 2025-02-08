@@ -1,6 +1,8 @@
 package my_test_with_wrapper;
 
 import com.dmdev.jdbc.starter.util.PropertiesUtil;
+
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -33,7 +35,7 @@ public final class ConnectionManager {
         }
     }
 
-    public static WrapperConnection get() {
+    public static Connection get() {
         try {
             return pool.take();
         } catch (InterruptedException e) {
